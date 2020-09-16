@@ -28,6 +28,12 @@ variable "security_group_ids" {
   type = set(string)
 }
 
+variable "authorized_keys" {
+  description = "Optional authorized SSH keys file which will be injected into the bastion on startup"
+  type = string
+  default = null
+}
+
 variable "instance_type" {
   description = "EC2 instance type to launch. Defaults to t3a.nano"
   type = string

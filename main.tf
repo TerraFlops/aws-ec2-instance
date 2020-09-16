@@ -18,6 +18,10 @@ resource "aws_instance" "instance" {
       key_name
     ]
   }
+  # If authorized keys were set, populate user data script to set them on every boot
+  user_data = var.authorized_keys == null ? null : templatefile("${path.module}/userdata.sh", {
+    authorized_keys = var.authorized_keys
+  })
 }
 
 # Create elastic IPs where required
