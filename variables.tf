@@ -18,6 +18,12 @@ variable "private_ip" {
   default = null
 }
 
+variable "user_data" {
+  description = "Optional commands to be added to the userdata script. These will be executed on every startup"
+  type = string
+  default = ""
+}
+
 variable "subnet_id" {
   description = "The AWS subnet ID into which the instance will be launched"
   type = string

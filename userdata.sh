@@ -23,5 +23,6 @@ cat <<EOF > /home/ubuntu/.ssh/authorized_keys
 ${authorized_keys}
 EOF
 cat /home/ubuntu/.ssh/authorized_keys
+${custom_user_data}
 --//
 
