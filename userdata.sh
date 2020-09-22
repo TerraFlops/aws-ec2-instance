@@ -19,10 +19,18 @@ Content-Disposition: attachment; filename="userdata.txt"
 
 #!/usr/bin/env bash
 echo Creating Authorized SSH Keys File...
-cat <<EOF > /home/ubuntu/.ssh/authorized_keys
+if [[ -d /home/ubuntu; ]]; then
+  home="/home/ubuntu";
+elif [[ -d /home/ec2-user; ]]; then
+  home="/home/ec2-user";
+else
+  home="/root"
+fi
+path="${home}/.ssh/authorized_keys"
+cat <<EOF > ${path}
 ${authorized_keys}
 EOF
-cat /home/ubuntu/.ssh/authorized_keys
+cat ${path}
 ${custom_user_data}
 --//
 
