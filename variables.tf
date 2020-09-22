@@ -40,6 +40,12 @@ variable "authorized_keys" {
   default = null
 }
 
+variable "authorized_keys_home" {
+  description = "Home folder in which SSH keys will be added"
+  type = string
+  default = "/home/ubuntu"
+}
+
 variable "instance_type" {
   description = "EC2 instance type to launch. Defaults to t3a.nano"
   type = string
