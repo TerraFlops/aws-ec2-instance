@@ -30,6 +30,12 @@ variable "volume_size" {
   default = 8
 }
 
+variable "volume_type" {
+  description = "Volume type"
+  type = string
+  default = "gp2"
+}
+
 variable "subnet_id" {
   description = "The AWS subnet ID into which the instance will be launched"
   type = string
