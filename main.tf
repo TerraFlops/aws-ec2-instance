@@ -15,8 +15,7 @@ resource "aws_instance" "instance" {
   }
   lifecycle {
     ignore_changes = [
-      key_name,
-      disable_api_termination
+      key_name
     ]
   }
   # If authorized keys were set, populate user data script to set them on every boot
