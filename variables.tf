@@ -81,3 +81,9 @@ variable "get_password_data" {
   type = bool
   default = false
 }
+
+variable "termination_protection" {
+  description = "Boolean flag, if true will enable EC2 instance termination protection"
+  type = bool
+  default = false
+}
