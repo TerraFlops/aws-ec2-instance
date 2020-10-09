@@ -24,6 +24,12 @@ variable "user_data" {
   default = ""
 }
 
+variable "volume_size" {
+  description = "Volume size"
+  type = number
+  default = 8
+}
+
 variable "subnet_id" {
   description = "The AWS subnet ID into which the instance will be launched"
   type = string

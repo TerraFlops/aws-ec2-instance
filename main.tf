@@ -27,6 +27,17 @@ resource "aws_instance" "instance" {
   disable_api_termination = var.termination_protection
 }
 
+resource "aws_volume_attachment" "volume" {
+  device_name = "/dev/nvme0n1"
+  volume_id = aws_ebs_volume.volume.id
+  instance_id = aws_instance.instance.id
+}
+
+resource "aws_ebs_volume" "volume" {
+  availability_zone = aws_instance.instance.availability_zone
+  size = var.volume_size
+}
+
 # Create elastic IPs where required
 resource "aws_eip" "server_eip" {
   count = var.elastic_ip == true ? 1 : 0
