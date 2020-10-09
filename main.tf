@@ -24,6 +24,7 @@ resource "aws_instance" "instance" {
     home = var.authorized_keys_home,
     custom_user_data = var.user_data
   })
+  disable_api_termination = var.termination_protection
 }
 
 # Create elastic IPs where required
