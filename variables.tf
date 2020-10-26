@@ -99,3 +99,9 @@ variable "termination_protection" {
   type = bool
   default = false
 }
+
+variable "volume_tags" {
+  description = "Optional Map of tags to be applied to volumes created by this instance"
+  type = map(string)
+  default = {}
+}
