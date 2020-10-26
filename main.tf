@@ -14,14 +14,14 @@ resource "aws_instance" "instance" {
     Description = var.description
   }
   volume_tags = merge({
-    Name = "${var.name}-volume"
+    Name = "${lower(var.name)}-root-volume"
   }, var.volume_tags)
   lifecycle {
     ignore_changes = [
       key_name,
-#       # This prevents clobbering the tags of attached EBS volumes.
-#       # https://github.com/terraform-providers/terraform-provider-aws/issues/770
-#       volume_tags,
+      # This prevents clobbering the tags of attached EBS volumes.
+      # https://github.com/terraform-providers/terraform-provider-aws/issues/770
+      volume_tags,
     ]
   }
   # If authorized keys were set, populate user data script to set them on every boot
